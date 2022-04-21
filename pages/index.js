@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Products from '../componets/Products'
+
 
 
 
@@ -15,7 +15,7 @@ export default function Home(data) {
 
       </Head>
        <h2 className='bg-fuchsia-900 mx-56 item-center text-amber-600'>aneshwar</h2>
-    <Products data={data}/>
+  
    
    <h2>aneshwar</h2>
 
