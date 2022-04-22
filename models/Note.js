@@ -7,4 +7,5 @@ const NoteSchema = new mongoose.Schema({
         type: String,
     }
 })
-module.exports = mongoose.models.Note || mongoose.model('Note', NoteSchema)
+mongoose.models = {}
+module.exports = mongoose.models.Note || mongoose.model('newever', NoteSchema)
