@@ -3,8 +3,8 @@ import Head from 'next/head'
 
 
 
-export default function Home(data) {
-
+export default function Home(){
+//  console.log(data)
 
   
   return (
@@ -22,13 +22,13 @@ export default function Home(data) {
     </div>
   )
 }
-// export async function getServerSideProps() {
-//   // const res = await  fetch('https://jsonplaceholder.typicode.com/posts')
-//   const res = await fetch('http://localhost:8080')
-//   const data = await res.json()
+// export async function getServerSideProps(context) {
+
+//   const res = await fetch('http://localhost:3000/api/users')
+//   const{ data} = await res.json()
 //   return {
 //     props: {
-//       data,
+//     data,
 //     }
 //   }
 // }
