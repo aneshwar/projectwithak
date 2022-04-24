@@ -1,31 +1,25 @@
 import React from 'react'
 
-export default function dy({data}) {
-   
-    const {title, description, url, _id, author,urlToImage,publishedAt,content } = data;
-  return (
-    <div className='flex space-x-4 p-5'>
-        <div className='flex justify-center'>
-               <img src={data.data.urlToImage} alt="" className=''/>
-        </div>
-       
-        <div className=''>
-            <div className='flex justify-between'>
-                <p className=''>{data.data.author}</p>
-            <p className=''>{data.data.publishedAt}</p>
-            </div>
-            
-       
-       <div className='grid grid-rows-3 grid-flow-col gap-4 text-2xl '>
-       <p className=''>{data.data.title}</p>
-        <p>{data.data.description}</p>
-        <p>{data.data.content}</p>
-       </div>
-  
-     
 
- </div>
+export default function dy({data}) {
+
+  return (
+<>
+{/* {render} */}
+<div className='p-1 md:flex sm:flex xl:flex lg:flex'>
+    <div className='bg-red-300'>
+        <img src={data.data.urlToImage} alt="" className='sm:h-full'/>
     </div>
+    <div className='py-2 flex flex-col space-y-2 font-bold sm:mx-3 sm:py-0 sm:justify-between lg:justify-center'>
+        <div className='cursor-pointer text-blue-900'>{data.data.title}</div>
+        <div className='cursor-pointer text-blue-900'>{data.data.description}</div>
+        <div className='cursor-pointer text-blue-900'>{data.data.content}</div>
+
+    </div>
+  
+</div>
+
+  </>
   )
 }
 export async function getServerSideProps(context) {
