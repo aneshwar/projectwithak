@@ -1,18 +1,35 @@
 import React from 'react'
 import Link from 'next/link'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 export default function letestnews({news}) {
 
-   
+   if (!news) {
+     return (
+       <div>Loading</div>
+     )
+   }
     const render = news.data.map((a) => {
+     
         const {_id,author,urlToImage, title,publishedAt,description, url, content } = a;
         return (
             <div key={_id} className='px-1 py-2 flex-none space-y-1 font-bold italic shadow-2xl bg-gray-100 justify-center'>
-                <Link href={`/letestnews/${_id}`}><img src={urlToImage} alt="" className='h-64'/></Link>
+                <div className='flex justify-center'>
+                  <Link href={`/letestnews/${_id}`}><LazyLoadImage
+      alt={urlToImage}
+      height={urlToImage}
+      src={urlToImage}
+      width={urlToImage}
+      className='h-64'/></Link>
+                  
+                  </div>
                 
-                <Link href={`/letestnews/${_id}`}><p className='text-2xl line-clamp-2 text-blue-900 cursor-pointer'>{title}</p></Link>
+                  
+                
+                <Link href={`/letestnews/${_id}`}><p className='text-2xl line-clamp-2 text-blue-900'>{title}</p></Link>
 
-                <Link href={`/letestnews/${_id}`}><p className='text-xl line-clamp-2 text-green-800' cursor-pointer >{description}</p></Link>
-                <Link href={`/letestnews/${_id}`}><p className='text-lg line-clamp-1 text-sky-900 cursor-pointer '>{content}</p></Link>
+                <Link href={`/letestnews/${_id}`}><p className='text-xl line-clamp-2 text-green-800' >{description}</p></Link>
+                <Link href={`/letestnews/${_id}`}><p className='text-lg line-clamp-1 text-sky-900 '>{content}</p></Link>
             </div>
         )
     })

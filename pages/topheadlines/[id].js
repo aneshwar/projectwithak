@@ -1,15 +1,26 @@
 import React from 'react'
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 export default function id({data}) {
-   
+   if (!data) {
+       return (
+           <div>Loading</div>
+       )
+   }
     const {_id, author, title, description, url, urlToImage,publishedAt,content } = data.data;
   
   return (
    <div className='md:grid grid-flow-row-dense grid-cols-2 bg-yellow-200 gap-x-2 pb-1 lg:text-white lg:flex lg:flex-col lg:px-10 lg:bg-white'>
        <div className='xl:-my-2 xl:flex xl:justify-center'>
-           <img src={urlToImage} alt="" className='md:h-full xl:m-auto'/>
+       <LazyLoadImage
+      alt={urlToImage}
+      height={urlToImage}
+      src={urlToImage}
+      width={urlToImage}
+      className='md:h-full xl:m-auto' />
+           {/* <img src={urlToImage} alt="" className='md:h-full xl:m-auto'/> */}
        </div>
-       <div className='bg-yellow-200 px-1'>
+       <div className='bg-yellow-200 px-1 py-5'>
        <div className='flex-none justify-around space-y-2 bg-yellow-200 font-bold'>
             <p className='text-2xl text-green-900'>{title}</p>
             <p className='text-xl text-red-900'>{description}</p>
